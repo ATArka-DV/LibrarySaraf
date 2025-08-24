@@ -157,6 +157,7 @@ header {
     box-shadow: 0 0 25px #00ff00;
 }
 #ImageLearn {
+    width: 60%;
     border-radius: 20px;
     animation-name: filter;
     animation-duration: 10s;
@@ -319,8 +320,8 @@ header {
 }
 #ImageStudent {
     border-radius: 20px;
-    height: 300px;
-    width: 300px;
+    height: auto;
+    width: 35%;
     margin-top: auto;
     margin-bottom: auto;
 }
@@ -379,6 +380,7 @@ header {
   outline: none;
   padding: 12px 24px;
   animation: LedInput 5s infinite;
+  border-radius: 5px;
 }
 @keyframes LedInput {
   0% {box-shadow: 0 0 25px #0f0, inset 0 0 25px #0f0;}
@@ -486,4 +488,43 @@ header {
   color: #fff;
   text-shadow: 0 0 5px #fff;
   transform: rotate(15deg) scale(1.2);
+}
+#container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media only screen and (max-width: 1500px) {
+  #Learn {
+    flex-direction: column;
+    align-items: center;
+  }
+  .aHeader {
+    scale: 0.5;
+    margin-left: 0;
+    margin-right: 0;
+    padding:0px 0px;
+  }
+  #LogoSpan {
+    scale: 0.5;
+    margin-left: -10px;
+  }
+  #HeaderDiv {
+    flex-direction: column;
+  }
+  header {
+    height: auto;
+  }
+  #Elements {
+    width: 90%;
+    font-size: 8px;
+    margin-top: 40px;
+  }
+  .pStudent {
+    font-size: 10px;
+  }
+  #NameCredit {
+    margin-left: 15px;
+  }
 }

@@ -17,9 +17,9 @@ for(let i = 0; i < 100; i++) {
 
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.strokeStyle = '#00ff00';
+  ctx.strokeStyle = '#fff';
   ctx.lineWidth = 2;
-  ctx.shadowColor = '#00ff00';
+  ctx.shadowColor = '#fff';
   ctx.shadowBlur = 10;
 
   drops.forEach(drop => {
@@ -155,15 +155,18 @@ function Load(){
     })
     .catch(error => console.error('خطا در خواندن فایل JSON:', error));
 }
-SearchInput.addEventListener('input', function() {
+try{
+  SearchInput.addEventListener('input', function() {
     valuesearch = SearchInput.value;
     if (!valuesearch) {
-        Load();
+      location.reload();
     } else {
-        search();
+      search();
     }
-    }
-);
+  });
+}catch(error){
+  console.log(error)
+}
 
 function search() {
     
@@ -242,3 +245,210 @@ function search() {
 
 }
 Load();
+
+const SearchInputB = document.getElementById("SearchInputB");
+function LoadB(){
+  fetch('Books.json')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+
+      const container = document.getElementById('containerB');
+
+      data.forEach(student => {
+        const div = document.createElement('div');
+        div.id = 'Elements';
+
+        const textDiv = document.createElement('div');
+        textDiv.className = 'StudentText';
+
+        const textDiv2 = document.createElement('div');
+        textDiv2.className = 'StudentText';
+
+        const h1 = document.createElement('h1');
+        h1.id = 'h1Student';
+        h1.textContent = student.Name;
+
+        const pJanre = document.createElement('p');
+        pJanre.className = 'pStudent';
+        pJanre.textContent = 'ژانر : ' + student.Janre;
+
+        const pMaker = document.createElement('p');
+        pMaker.className = 'pStudent';
+        pMaker.textContent = 'نویسنده : ' + student.Maker;
+
+        const pTranslator = document.createElement('p');
+        pTranslator.className = 'pStudent';
+        pTranslator.textContent = 'مترجم : ' + student.Translator;
+
+        const pYearMake = document.createElement('p');
+        pYearMake.className = 'pStudent';
+        pYearMake.textContent = 'سال ساخت : ' + student.YearMake;
+
+        const pAmanat = document.createElement('p');
+        pAmanat.className = 'pStudent';
+        pAmanat.textContent = 'امانت داده شده : ' + student.Amanat;
+
+        const pAmanatDar = document.createElement('p');
+        pAmanatDar.className = 'pStudent';
+        pAmanatDar.textContent = 'به : ' + student.AmanatDar;
+
+        const pCodeAmanat = document.createElement('p');
+        pCodeAmanat.className = 'pStudent';
+        pCodeAmanat.textContent = 'کد عضویت : ' + student.CodeAmanat;
+
+        const pDate = document.createElement('p');
+        pDate.className = 'pStudent';
+        pDate.textContent = 'تاریخ : ' + student.Date;
+
+        const pAddress = document.createElement('p');
+        pAddress.className = 'pStudent';
+        pAddress.textContent = 'آدرس : ' + student.Address;
+
+        textDiv.appendChild(h1);
+        textDiv.appendChild(pJanre);
+        textDiv.appendChild(pMaker);
+        textDiv.appendChild(pTranslator);
+        textDiv.appendChild(pYearMake);
+
+        
+        textDiv2.appendChild(pAmanat);
+
+        if (localStorage.getItem("UserMode") == "True"){
+          textDiv2.appendChild(pAmanatDar);
+          textDiv2.appendChild(pCodeAmanat);
+          textDiv2.appendChild(pDate);
+          textDiv2.appendChild(pAddress);
+        }
+        div.appendChild(textDiv2);
+        div.appendChild(textDiv);
+
+        container.appendChild(div);
+        console.log("Good");
+      });
+
+    })
+    .catch(error => console.error('خطا در خواندن فایل JSON:', error));
+}
+
+try{
+  SearchInputB.addEventListener('input', function() {
+    valuesearch = SearchInputB.value.trim();
+    if (!valuesearch) {
+      const container = document.getElementById('containerB');
+      container.innerHTML = "";
+      LoadB();
+    } else {
+      searchB();
+    }
+  });
+}catch(error){
+  console.log(error)
+}
+function searchB() {
+    
+  const searchTerm = SearchInputB.value;
+
+  fetch('Books.json')
+  .then(response => response.json())
+  .then(data => {
+    
+    const container = document.getElementById('containerB');
+    container.innerHTML = "";
+    const sk = searchTerm;
+    
+    
+    const filteredData = data.filter(student => 
+      student.Name.toLowerCase().includes(sk.toLowerCase()) ||
+      student.Janre.toLowerCase().includes(sk.toLowerCase())
+    );
+    console.log(filteredData);
+    
+    filteredData.forEach(student => {
+      const div = document.createElement('div');
+      div.id = 'Elements';
+      
+      const textDiv = document.createElement('div');
+      textDiv.className = 'StudentText';
+      
+      const textDiv2 = document.createElement('div');
+      textDiv2.className = 'StudentText';
+      
+      const h1 = document.createElement('h1');
+      h1.id = 'h1Student';
+      h1.textContent = student.Name;
+      
+      const pJanre = document.createElement('p');
+      pJanre.className = 'pStudent';
+      pJanre.textContent = 'ژانر : ' + student.Janre;
+      
+      const pMaker = document.createElement('p');
+      pMaker.className = 'pStudent';
+      pMaker.textContent = 'نویسنده : ' + student.Maker;
+      
+      const pTranslator = document.createElement('p');
+      pTranslator.className = 'pStudent';
+      pTranslator.textContent = 'مترجم : ' + student.Translator;
+      
+      const pYearMake = document.createElement('p');
+      pYearMake.className = 'pStudent';
+      pYearMake.textContent = 'سال ساخت : ' + student.YearMake;
+      
+      const pAmanat = document.createElement('p');
+      pAmanat.className = 'pStudent';
+      pAmanat.textContent = 'امانت داده شده : ' + student.Amanat;
+      
+      const pAmanatDar = document.createElement('p');
+      pAmanatDar.className = 'pStudent';
+      pAmanatDar.textContent = 'به : ' + student.AmanatDar;
+      
+      const pCodeAmanat = document.createElement('p');
+      pCodeAmanat.className = 'pStudent';
+      pCodeAmanat.textContent = 'کد عضویت : ' + student.CodeAmanat;
+      
+      const pDate = document.createElement('p');
+      pDate.className = 'pStudent';
+      pDate.textContent = 'تاریخ : ' + student.Date;
+      
+      const pAddress = document.createElement('p');
+      pAddress.className = 'pStudent';
+      pAddress.textContent = 'آدرس : ' + student.Address;
+      
+      textDiv.appendChild(h1);
+      textDiv.appendChild(pJanre);
+      textDiv.appendChild(pMaker);
+      textDiv.appendChild(pTranslator);
+      textDiv.appendChild(pYearMake);
+      
+      
+      textDiv2.appendChild(pAmanat);
+      
+      if (localStorage.getItem("UserMode") == "True"){
+        textDiv2.appendChild(pAmanatDar);
+        textDiv2.appendChild(pCodeAmanat);
+        textDiv2.appendChild(pDate);
+        textDiv2.appendChild(pAddress);
+      }
+      div.appendChild(textDiv2);
+      div.appendChild(textDiv);
+      
+      container.appendChild(div);
+      console.log("Good");
+    });
+  })
+  .catch(error => console.error('خطا در خواندن فایل JSON:', error));
+
+}
+LoadB();
+
+function News() {
+  const News = document.getElementById("News")
+  fetch('Words.json')
+  .then(response => response.json())
+  .then(data => {
+    const randomIndex = Math.floor(Math.random() * data.length);
+    const randomMessage = data[randomIndex];
+    News.textContent = randomMessage;
+  });
+}
+Window.Load(News());

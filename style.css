@@ -12,6 +12,23 @@ body {
 @keyframes fadeIn {
   to { opacity: 1; }
 }
+#Wrong {
+  color: #ff0000;
+  text-shadow: 0 0 25px #ff0000;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 50px;
+  opacity: 1;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 0;
+  animation: ShowWrong 3s forwards;
+  animation-delay: 2s;
+}
+@keyframes ShowWrong {
+ to {opacity: 0; transform: translateY(-500px);}
+}
 header {
     background-color: #00921850;
     border-radius: 20px;
@@ -155,6 +172,13 @@ header {
     border-radius: 20px;
     padding: 10px 10px;
     box-shadow: 0 0 25px #00ff00;
+    z-index: 1;
+    opacity: 0;
+    animation: ShowLearn 2s forwards;
+    animation-delay: 3s;
+}
+@keyframes ShowLearn {
+  to {opacity: 1;}
 }
 #ImageLearn {
     width: 60%;
@@ -172,6 +196,7 @@ header {
 }
 #Learn div{
     margin-left: 30px;
+    width: 65%;
 }
 #h1Learn {
     font-family: sans-serif;
@@ -180,35 +205,41 @@ header {
     user-select: none;
     pointer-events: none;
     animation: lightBreak 8s forwards;
+    text-align: center;
 }
 @keyframes lightBreak {
   0% {
     filter: brightness(0);
     opacity: 0;
-    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
   }
   50% {
     filter: brightness(1.5);
     opacity: 1;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
   }
   100% {
     filter: brightness(1);
     opacity: 1;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
   }
 }
 .pLearn {
     font-family: sans-serif;
     font-weight: bold;
+    font-size: 20px;
     margin-top: 0;
+    width: 100%;
+    line-height: 30px;
+    text-align: right;
 }
 #News {
+    text-align: center;
     width: 90%;
     margin-top: 50px;
     color: #ffffff;
     text-shadow: 0 0 25px #00ff00;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
     font-family: sans-serif;
     position: relative;
@@ -307,7 +338,7 @@ header {
 #Elements {
     display: flex;
     background-color: #127c12;
-    width: 70%;
+    width: auto;
     margin-top: 100px;
     border: none;
     border-radius: 20px;
@@ -358,7 +389,12 @@ header {
     animation: lightBreaks 5s forwards;
 }
 .StudentText {
+  padding-left: 50px;
+  padding-right: 50px;
   text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #SearchDiv {
@@ -512,14 +548,14 @@ header {
     margin-left: -10px;
   }
   #HeaderDiv {
-    flex-direction: column;
+    flex-wrap: wrap;
   }
   header {
     margin-top: 15px;
     height: auto;
   }
   #Elements {
-    width: 90%;
+    width: auto;
     font-size: 8px;
     margin-top: 40px;
   }
@@ -528,8 +564,68 @@ header {
   }
   #NameCredit {
     margin-left: 15px;
+    margin-bottom: 30px;
   }
   #ImageLearn {
     width: 100%;
   }
+  .StudentText {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  #Wrong {
+    font-size: 100%;
+  }
+}
+
+#SearchDivB {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#SearchInputB {
+  height: 25px;
+  width: 200px;
+  background-color: #00000000;
+  box-shadow: 0 0 25px #0f0, inset 0 0 25px #0f0;
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  text-shadow: 0 0 5px #0f0;
+  border: 2px solid #0f0;
+  outline: none;
+  padding: 12px 24px;
+  animation: LedInput 5s infinite;
+  border-radius: 5px;
+}
+@keyframes LedInputB {
+  0% {box-shadow: 0 0 25px #0f0, inset 0 0 25px #0f0;}
+  50% {box-shadow: 0 0 5px #0f0, inset 0 0 5px #0f0;}
+  100% {box-shadow: 0 0 25px #0f0, inset 0 0 25px #0f0;}
+}
+#SearchLabelB {
+  color: #0f0;
+  text-shadow: 0 0 5px #0f0;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  margin-left: 20px;
+  position: absolute;
+  margin-left: -5px;
+  pointer-events: none;
+  transition: all 0.5s ease;
+}
+#SearchInputB:focus + #SearchLabelB,
+#SearchInputB:not(:placeholder-shown) + #SearchLabelB {
+  color: #000;
+  text-shadow: 0 0 1px #0f0, 0 0 2px #0f0, 0 0 3px #0f0, 0 0 4px #0f0, 0 0 5px #0f0;
+  transform: translateX(-70px) translateY(-25px);
+}
+#containerB {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

@@ -383,7 +383,8 @@ function searchB() {
     
     const filteredData = data.filter(student => 
       student.Name.toLowerCase().includes(sk.toLowerCase()) ||
-      student.Janre.toLowerCase().includes(sk.toLowerCase())
+      student.Janre.toLowerCase().includes(sk.toLowerCase()) ||
+      student.CodeAmanat.toLowerCase().includes(sk.toLowerCase())
     );
     console.log(filteredData);
     

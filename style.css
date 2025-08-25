@@ -515,6 +515,7 @@ header {
     flex-direction: column;
   }
   header {
+    margin-top: 15px;
     height: auto;
   }
   #Elements {
@@ -527,5 +528,8 @@ header {
   }
   #NameCredit {
     margin-left: 15px;
+  }
+  #ImageLearn {
+    width: 100%;
   }
 }

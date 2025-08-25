@@ -1,5 +1,7 @@
 const canvas = document.getElementById('neonRain');
 const ctx = canvas.getContext('2d');
+const audio = new Audio('Music.mp3');
+audio.play();
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -16,10 +18,31 @@ for(let i = 0; i < 100; i++) {
 }
 
 function draw() {
+  const New = new Date();
+  const TimeB = New.getMinutes();
+  if (TimeB == 1) {
+    localStorage.setItem("UserMode", "False")
+    alert("Exited !")
+    location.reload();
+  }
+
+  const originalTitle = document.title;
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      document.title = "Back To My Page !"
+    } else {
+      document.title = originalTitle;
+    }
+  });
+
+  if (!audio.played){
+    audio.play();
+  }
+
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.strokeStyle = '#fff';
+  ctx.strokeStyle = '#00ffea';
   ctx.lineWidth = 2;
-  ctx.shadowColor = '#fff';
+  ctx.shadowColor = '#0008ffff';
   ctx.shadowBlur = 10;
 
   drops.forEach(drop => {
@@ -283,7 +306,7 @@ function LoadB(){
 
         const pYearMake = document.createElement('p');
         pYearMake.className = 'pStudent';
-        pYearMake.textContent = 'سال ساخت : ' + student.YearMake;
+        pYearMake.textContent = 'سال انتشار : ' + student.YearMake;
 
         const pAmanat = document.createElement('p');
         pAmanat.className = 'pStudent';
@@ -392,7 +415,7 @@ function searchB() {
       
       const pYearMake = document.createElement('p');
       pYearMake.className = 'pStudent';
-      pYearMake.textContent = 'سال ساخت : ' + student.YearMake;
+      pYearMake.textContent = 'سال انتشار : ' + student.YearMake;
       
       const pAmanat = document.createElement('p');
       pAmanat.className = 'pStudent';

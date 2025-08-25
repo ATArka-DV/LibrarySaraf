@@ -52,45 +52,60 @@ header {
     justify-content: center;
 }
 .aHeader {
-    display: inline-block;
-    padding: 12px 24px;
-    margin-right: 30px;
-    text-decoration: none;
-    font-size: 20px;
-    font-family: sans-serif;
-    font-weight: bold;
-    color: #0f0;
-    transition:all 0.5s ease;
-    animation: flicker 3s infinite;
+  text-decoration: none;
+  display: inline-block;
+  padding: 12px 24px;
+  margin-right: 30px;
+  font-size: 20px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: #0f0;
+  animation: flicker 5s infinite;
+  transition: all 0.3s ease;
 }
+
 .aHeader:hover {
-    color: #00ff00;
-    border-bottom: 3px solid #00ff00;
-    transform: scale(1.1);
-    text-shadow: 0 0 8px #00ff00, 0 0 20px #00ff00;
-    transition: all 0.3s ease;
-    animation: none;
-    color: #00ff00;
-    border-bottom: 3px solid #00ff00;
-    transform: scale(1.1);
-    text-shadow:
-    0 0 10px #00ff00,
-    0 0 25px #00ff00,
-    0 0 40px #00ff00;
+  color: #0f0;
+  border-bottom: 2px solid #0f0;
+  transform: scale(1.05);
+  text-shadow: none;
 }
 @keyframes flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+  0%, 20%, 40%, 60%, 80%, 100% {
     opacity: 1;
-    text-shadow:
-      0 0 5px #00ff00,
-      0 0 10px #00ff00,
-      0 0 20px #00ff00;
+    filter: brightness(1.2);
   }
-  20%, 22%, 24%, 55% {
-    opacity: 0.5;
-    text-shadow: none;
+  18%, 19%, 38%, 39%, 58%, 59%, 78%, 79% {
+    opacity: 0.4;
+    filter: brightness(0.5);
+  }
+  90% {
+    opacity: 1;
+    filter: brightness(1.5);
   }
 }
+
+.aHeader:nth-child(1) {
+  animation-delay: 0s;
+  animation: flicker 5s infinite;
+}
+.aHeader:nth-child(2) {
+  animation-delay: 1s;
+  animation: flicker 6s infinite;
+}
+.aHeader:nth-child(3) {
+  animation-delay: 2s;
+  animation: flicker 7s infinite;
+}
+.aHeader:nth-child(4) {
+  animation-delay: 3s;
+  animation: flicker 8s infinite;
+}
+.aHeader:nth-child(5) {
+  animation-delay: 4s;
+  animation: flicker 9s infinite;
+}
+
 #Active {
     color: #00ff00;
     border-bottom: 3px solid #00ff00;
@@ -150,7 +165,7 @@ header {
     display: flex;
     background-color: #127c12;
     width: 70%;
-    margin-top: 100px;
+    margin-top: 50px;
     border: none;
     border-radius: 20px;
     padding: 10px 10px;
@@ -215,13 +230,12 @@ header {
     text-align: center;
     width: 90%;
     margin-top: 50px;
-    color: #ffffff;
+    color: #fff;
     text-shadow: 0 0 25px #00ff00;
     font-size: 25px;
     font-weight: bold;
     font-family: sans-serif;
     position: relative;
-    color: #000;
     font-weight: 900;
     animation: glitch 2s infinite;
     user-select: none;

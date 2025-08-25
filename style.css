@@ -204,6 +204,7 @@ header {
     margin-top: 0;
 }
 #News {
+    width: 90%;
     margin-top: 50px;
     color: #ffffff;
     text-shadow: 0 0 25px #00ff00;

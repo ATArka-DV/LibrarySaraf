@@ -85,8 +85,8 @@ try {
   const Password = document.getElementById("PasswordInput")
 
   ButtonLogin.addEventListener("click", function() {
-    if (Username.value === "SarafCode03"){
-      if (Password.value === "SarafCode03"){
+    if (Username.value === "sarafcode03"){
+      if (Password.value === "sarafcode03"){
         if (localStorage.getItem("UserMode") === "True"){
           localStorage.setItem("UserMode", "False")
           window.location.href = "index.html";

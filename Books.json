@@ -1,5 +1,6 @@
 [
-    {"Name": "مغازه خودکشی", 
+    {
+    "Name": "مغازه خودکشی", 
     "Janre": "رمان", 
     "Maker": "جان تیلو", 
     "Translator": "فرشاد قدیری", 
@@ -8,9 +9,12 @@
     "AmanatDar": "زین العابدین صیادی",
     "CodeAmanat": "624385",
     "Date": "1400/0/0",
-    "Address": "ج15"},
+    "Address": "ج15"
+    },
 
-    {"Name": "روح", 
+
+    {
+    "Name": "روح", 
     "Janre": "رمان", 
     "Maker": "تنی نلسون", 
     "Translator": "نیلوفر امن زاده", 
@@ -19,16 +23,20 @@
     "AmanatDar": "زین العابدین صیادی",
     "CodeAmanat": "236578",
     "Date": "1402/5/20",
-    "Address": "ب32"},
+    "Address": "ب32"
+    },
     
-    {"Name": "مغازه خودکشی", 
+
+    {
+    "Name": "مغازه خودکشی", 
     "Janre": "علمی", 
     "Maker": "جان تیلو", 
     "Translator": "فرشاد قدیری", 
     "YearMake": "2007",
-    "Amanat": "بله",
-    "AmanatDar": "زین العابدین صیادی",
-    "CodeAmanat": "624385",
-    "Date": "1400/0/0",
-    "Address": "ج15"}
+    "Amanat": "خیر",
+    "AmanatDar": "-",
+    "CodeAmanat": "-",
+    "Date": "-",
+    "Address": "-"
+    }
 ]
